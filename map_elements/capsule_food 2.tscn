@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://nojhhvggopqt"]
+
+[ext_resource type="Script" path="res://map_elements/food.gd" id="1_lte77"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_03be0"]
+radius = 1.5
+height = 5.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vr8gs"]
+radius = 1.5
+height = 5.0
+
+[node name="Capsule" type="RigidBody3D"]
+collision_layer = 4096
+collision_mask = 4103
+script = ExtResource("1_lte77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_03be0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_vr8gs")
+skeleton = NodePath("../..")
