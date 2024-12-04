@@ -71,7 +71,6 @@ func _ready():
 var last_fire = 0.0
 @export var fire_rate = 0.2
 
-
 func hurt(amount):
 	health -= amount
 

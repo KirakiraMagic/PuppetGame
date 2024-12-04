@@ -37,13 +37,13 @@ func _on_letter_collected(letter,score, p1):
 
 func _on_hit(p1: bool):
 	if p1:
-		p1_score -= 50
-		p1_score = clamp(p1_score, 0, 9999)
-		p1_score_label.text = "[center]" + str(p1_score) + " PTS"
-	else:
-		p2_score -= 50
+		p2_score += 100
 		p2_score = clamp(p2_score, 0, 9999)
 		p2_score_label.text = "[center]" + str(p2_score) + " PTS"
+	else:
+		p1_score += 100
+		p1_score = clamp(p1_score, 0, 9999)
+		p1_score_label.text = "[center]" + str(p1_score) + " PTS"
 
 func _on_game_timer_timeout():
 	#pause scene
