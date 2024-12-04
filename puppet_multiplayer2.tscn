@@ -95,7 +95,10 @@ spring_length = 5.0
 script = ExtResource("9_fri4h")
 
 [node name="Camera3D" type="Camera3D" parent="CanvasLayer/Puppet1Viewport/SubViewport/Puppet1/SpringArm3D"]
+<<<<<<< Updated upstream:puppet_multiplayer2.tscn
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 10, 1, 10)
+=======
+>>>>>>> Stashed changes:new_level.tscn
 
 [node name="FaceViewport1" type="SubViewport" parent="CanvasLayer/Puppet1Viewport/SubViewport/Puppet1"]
 handle_input_locally = false
@@ -294,9 +297,15 @@ wait_time = 3.0
 [node name="StaticBody3D" type="StaticBody3D" parent="puppet_game_level2"]
 collision_layer = 16
 
+<<<<<<< Updated upstream:puppet_multiplayer2.tscn
 [node name="CollisionShape3D" type="CollisionShape3D" parent="puppet_game_level2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35)
 shape = SubResource("BoxShape3D_gy255")
+=======
+[node name="Spawners" type="Node3D" parent="bowl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29664, 2.50647)
+script = ExtResource("9_o8sup")
+>>>>>>> Stashed changes:new_level.tscn
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="puppet_game_level2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35)
@@ -310,7 +319,70 @@ shape = SubResource("BoxShape3D_gy255")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -35, 0, -1.5299e-06)
 shape = SubResource("BoxShape3D_gy255")
 
+<<<<<<< Updated upstream:puppet_multiplayer2.tscn
 [node name="BlobCameraQuad" parent="." instance=ExtResource("7_1f2b3")]
+=======
+[node name="Marker3D4" type="Marker3D" parent="bowl/Spawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Marker3D5" type="Marker3D" parent="bowl/Spawners"]
+
+[node name="Spawners2" type="Node3D" parent="bowl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29664, -2.74774)
+script = ExtResource("9_o8sup")
+
+[node name="Marker3D" type="Marker3D" parent="bowl/Spawners2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="bowl/Spawners2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Marker3D3" type="Marker3D" parent="bowl/Spawners2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Marker3D4" type="Marker3D" parent="bowl/Spawners2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Marker3D5" type="Marker3D" parent="bowl/Spawners2"]
+
+[node name="Spawners3" type="Node3D" parent="bowl"]
+transform = Transform3D(0.0246067, 0, -0.999697, 0, 1, 0, 0.999697, 0, 0.0246067, -2.62631, 1.29664, -0.0559895)
+script = ExtResource("9_o8sup")
+
+[node name="Marker3D" type="Marker3D" parent="bowl/Spawners3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="bowl/Spawners3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Marker3D3" type="Marker3D" parent="bowl/Spawners3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Marker3D4" type="Marker3D" parent="bowl/Spawners3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Marker3D5" type="Marker3D" parent="bowl/Spawners3"]
+
+[node name="Spawners4" type="Node3D" parent="bowl"]
+transform = Transform3D(0.0246067, 0, -0.999697, 0, 1, 0, 0.999697, 0, 0.0246067, 2.62631, 1.29664, -0.185278)
+script = ExtResource("9_o8sup")
+
+[node name="Marker3D" type="Marker3D" parent="bowl/Spawners4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="bowl/Spawners4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Marker3D3" type="Marker3D" parent="bowl/Spawners4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Marker3D4" type="Marker3D" parent="bowl/Spawners4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Marker3D5" type="Marker3D" parent="bowl/Spawners4"]
+
+[node name="BlobCameraQuad" parent="." instance=ExtResource("10_w1746")]
+>>>>>>> Stashed changes:new_level.tscn
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 
 [node name="GooBalls" type="Node3D" parent="."]
