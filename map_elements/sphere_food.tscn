@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3mlast3cdsx1"]
+
+[ext_resource type="Script" path="res://map_elements/food.gd" id="1_ub1m4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n8hlx"]
+radius = 1.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_qy0qq"]
+radius = 1.5
+height = 3.0
+
+[node name="Sphere" type="RigidBody3D"]
+collision_layer = 4096
+collision_mask = 4103
+script = ExtResource("1_ub1m4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_n8hlx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("SphereMesh_qy0qq")
+skeleton = NodePath("../..")

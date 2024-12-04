@@ -47,7 +47,7 @@ var vomit_time = 0.0
 @export var blob_combiner: Node3D
 
 #Temp projectile
-@onready var projectile = preload("res://test1/projectile.tscn")
+@onready var projectile = preload("res://blobs/projectile.tscn")
 
 var face_cam_pos_offset = Vector3(0,0,-2)
 var face_cam_rot_offset = Vector3(0,-180,0)

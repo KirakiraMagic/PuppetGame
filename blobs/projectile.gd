@@ -47,6 +47,8 @@ func absorb(other_projectile):
 	other_projectile.freeze = true
 	var scale_change =  1 + (other_projectile.mass / mass)
 	mass += other_projectile.mass
+	linear_velocity += other_projectile.linear_velocity * ((other_projectile.mass / mass))
+	angular_velocity += other_projectile.angular_velocity * ( (other_projectile.mass / mass))
 	other_projectile.queue_free()
 	print(scale_change)
 	var tween = create_tween()
@@ -82,4 +84,4 @@ func attatch_to(other_projectile) -> bool:
 # 	if mass >= MAX_MASS:
 # 		sleeping = true
 # 	return true
-	
+
