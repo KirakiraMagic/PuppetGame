@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://co631qbvwi7x3"]
+
+[ext_resource type="Material" uid="uid://b2sqw8o714pr2" path="res://blobs/blob_material.tres" id="1_001d6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_kfu4n"]
+lightmap_size_hint = Vector2i(12, 12)
+material = ExtResource("1_001d6")
+flip_faces = true
+size = Vector2(100, 100)
+
+[node name="BlobCameraQuad" type="MeshInstance3D"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, -0.601317)
+mesh = SubResource("QuadMesh_kfu4n")

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="AltArcadePuppets"
-run/main_scene="res://puppet_multiplayer2.tscn"
+run/main_scene="res://new_level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=30
 config/icon="res://icon.svg"
