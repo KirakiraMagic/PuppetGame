@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://dbpbfdfhh41xf" path="res://ui/Popcat.otf" id="4_hrpg0"]
 
 [node name="StartScreen" type="Node2D"]
+scale = Vector2(0.635516, 0.635516)
 script = ExtResource("1_ivpx6")
 
 [node name="PuppetGameSkyBoxNoHillsCheckeredFloor" type="Sprite2D" parent="."]
@@ -24,6 +25,7 @@ offset_top = 55.0
 offset_right = 1846.0
 offset_bottom = 831.0
 color = Color(0.576471, 0.537255, 0.352941, 0.498039)
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchors_preset = 7
@@ -54,17 +56,17 @@ text = "-WIGGLE [i]back and forth[/i] to MOVE
 -Vomit on the other player to reduce their points
 
 [center] [b][wave]LEAN FORWARD TO START"
+metadata/_edit_use_anchors_ = true
 
 [node name="FlyLabel" type="ColorRect" parent="."]
-visible = false
 offset_left = 214.0
 offset_top = 697.0
 offset_right = 677.0
 offset_bottom = 928.0
 color = Color(0.307642, 0.282948, 0.167074, 0.498039)
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_left = 256.0
 offset_top = 718.0
 offset_right = 651.0
@@ -73,3 +75,4 @@ theme_override_fonts/font = ExtResource("4_hrpg0")
 theme_override_font_sizes/font_size = 75
 text = "P1 Flying
 P2 Flying"
+metadata/_edit_use_anchors_ = true

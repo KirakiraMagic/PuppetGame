@@ -104,7 +104,6 @@ shape = SubResource("CapsuleShape3D_56b5h")
 [node name="SpinParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30206, 0)
 cast_shadow = 0
-emitting = false
 amount = 10
 randomness = 1.0
 trail_enabled = true
@@ -172,8 +171,5 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 
 [node name="FaceCamMarker2" type="Marker3D" parent="puppet_model/PuppetAmature/Skeleton3D" index="1"]
 transform = Transform3D(1, 2.26267e-08, 2.97888e-09, -2.26267e-08, 0.965926, 0.258819, 2.97884e-09, -0.258819, 0.965926, -2.23736e-07, 2.046, 2.55924)
-
-[node name="VomitMarker" type="Marker3D" parent="puppet_model/PuppetAmature/Skeleton3D" index="2"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -8.75178e-08, 1.85528, 1.00109)
 
 [editable path="puppet_model"]

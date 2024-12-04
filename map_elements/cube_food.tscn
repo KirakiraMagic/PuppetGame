@@ -1,12 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bsgrya76l3rrc"]
 
 [ext_resource type="Script" path="res://map_elements/food.gd" id="1_ngxbj"]
+[ext_resource type="PackedScene" uid="uid://c0kx2172jgvl0" path="res://map_elements/breadgoogly.blend" id="2_cnkrf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eijp2"]
-size = Vector3(3, 3, 3)
-
-[sub_resource type="BoxMesh" id="BoxMesh_k37c4"]
-size = Vector3(3, 3, 3)
+size = Vector3(2.69434, 2.57178, 3.27832)
 
 [node name="Cube" type="RigidBody3D"]
 collision_layer = 4096
@@ -14,8 +12,8 @@ collision_mask = 4103
 script = ExtResource("1_ngxbj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.214111, 0)
 shape = SubResource("BoxShape3D_eijp2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-mesh = SubResource("BoxMesh_k37c4")
-skeleton = NodePath("../..")
+[node name="breadgoogly" parent="CollisionShape3D" instance=ExtResource("2_cnkrf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.214111, 0)

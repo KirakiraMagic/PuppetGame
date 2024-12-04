@@ -42,9 +42,14 @@ var vomit_time = 0.0
 @onready var head_top = $Body/Neck/Head/HeadTop
 @onready var head = $Body/Neck/Head
 @export var face_cam : Camera3D
-@onready var face_cam_marker = $Body/Neck/Head/FaceCamMarker
+@onready var face_cam_marker = $puppet_model/PuppetAmature/Skeleton3D/FaceCamMarker2
 @onready var audio_player = $Body/Neck/Head/AudioStreamPlayer3D
+@onready var vomit_marker = $puppet_model/PuppetAmature/Skeleton3D/VomitMarker
 @export var blob_combiner: Node3D
+
+@export var test_mouth := 0.0
+
+@onready var skeleton = $puppet_model/PuppetAmature/Skeleton3D
 
 #Temp projectile
 @onready var projectile = preload("res://blobs/projectile.tscn")
@@ -58,10 +63,10 @@ var start_position = Vector3.ZERO
 func _ready():
 	start_position = global_position
 	if puppet_mat:
-		$Body/Neck.material_override = puppet_mat
-		$Body/Neck/Head/HeadTop.material_override = puppet_mat
-		$Body/Neck/Head/HeadBottom.material_override = puppet_mat
-	pass # Replace with function body.
+		$puppet_model/PuppetAmature/Skeleton3D/PuppetMesh.set_surface_override_material(0, puppet_mat)
+		#$Body/Neck.material_override = puppet_mat
+		#$Body/Neck/Head/HeadTop.material_override = puppet_mat
+		#$Body/Neck/Head/HeadBottom.material_override = puppet_mat
 
 var last_fire = 0.0
 @export var fire_rate = 0.2
@@ -140,8 +145,8 @@ func _physics_process(delta):
 	if not is_on_floor():
 			velocity.y += get_gravity().y * delta * 0.5
 	
-	body.rotation.z = Input.get_axis(right_input, left_input) * copy_amount
-	body.rotation.x = Input.get_axis(forward_input, back_input) * copy_amount
+	skeleton.rotation.z = Input.get_axis(right_input, left_input) * copy_amount
+	skeleton.rotation.x = Input.get_axis(forward_input, back_input) * copy_amount
 
 	var lean_forward = Input.get_axis(forward_input, back_input)
 
@@ -153,7 +158,10 @@ func _physics_process(delta):
 		vomit_time += delta
 	else: 
 		vomit_time = 0.0
-	head_top.rotation.x = clamp(-lean_forward, 0, 1.3)
+
+	var mouth_rot = remap(clamp(-lean_forward, 0.0, 0.7), 0.0, 0.7, PI/2, 0.3)
+	skeleton.set_bone_pose_rotation(2,Quaternion(Vector3(1, 0, 0), mouth_rot))
+	#head_top.rotation.x = clamp(-lean_forward, 0, 1.3)
 	move_and_slide()
 
 

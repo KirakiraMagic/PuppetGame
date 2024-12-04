@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dfu7lctvjd6ok"]
+[gd_scene load_steps=24 format=3 uid="uid://dfu7lctvjd6ok"]
 
 [ext_resource type="Texture2D" uid="uid://dl2o2iim3t1u0" path="res://textures/PuppetGame_SkyBox_noHills_checkeredFloor.jpg" id="1_gxp27"]
 [ext_resource type="Script" path="res://map_elements/death_area.gd" id="2_3fv8o"]
@@ -7,7 +7,8 @@
 [ext_resource type="Script" path="res://player/puppet_camera.gd" id="5_ihqfs"]
 [ext_resource type="Texture2D" uid="uid://rf2ysp2aug6n" path="res://ui/white-circle-free-png.webp" id="6_p2bjp"]
 [ext_resource type="FontFile" uid="uid://dbpbfdfhh41xf" path="res://ui/Popcat.otf" id="7_ocaqc"]
-[ext_resource type="PackedScene" uid="uid://c4fq6f1bj6cxo" path="res://map_elements/bowl.tscn" id="8_mw5kb"]
+[ext_resource type="PackedScene" uid="uid://cc1ft7mjaird5" path="res://map_elements/bowl.blend" id="8_1r1so"]
+[ext_resource type="PackedScene" uid="uid://btjg2f11jul6m" path="res://ui/start_screen.tscn" id="8_vvrj4"]
 [ext_resource type="Script" path="res://map_elements/SpawnFood.gd" id="9_o8sup"]
 [ext_resource type="PackedScene" uid="uid://co631qbvwi7x3" path="res://blobs/BlobCameraQuad.tscn" id="10_w1746"]
 [ext_resource type="Script" path="res://blobs/goo_balls.gd" id="11_n888y"]
@@ -86,6 +87,7 @@ spin_threshold = 2
 spin_timeout = 0.8
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CanvasLayer/Puppet1Viewport/SubViewport/Puppet1"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -33, 17, -33)
 top_level = true
 collision_mask = 5
 shape = SubResource("SphereShape3D_vchys")
@@ -93,7 +95,7 @@ spring_length = 5.0
 script = ExtResource("5_ihqfs")
 
 [node name="Camera3D" type="Camera3D" parent="CanvasLayer/Puppet1Viewport/SubViewport/Puppet1/SpringArm3D"]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 10, 1, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="FaceViewport1" type="SubViewport" parent="CanvasLayer/Puppet1Viewport/SubViewport/Puppet1"]
 handle_input_locally = false
@@ -129,6 +131,7 @@ spin_threshold = 2
 spin_timeout = 0.8
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CanvasLayer/Puppet2Viewport/SubViewport/Puppet2"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 33, 17, 33)
 top_level = true
 collision_mask = 5
 shape = SubResource("SphereShape3D_vchys")
@@ -136,7 +139,6 @@ spring_length = 5.0
 script = ExtResource("5_ihqfs")
 
 [node name="Camera3D" type="Camera3D" parent="CanvasLayer/Puppet2Viewport/SubViewport/Puppet2/SpringArm3D"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -10, 2, -10)
 compositor = SubResource("Compositor_nh02e")
 
 [node name="FaceViewport2" type="SubViewport" parent="CanvasLayer/Puppet2Viewport/SubViewport/Puppet2"]
@@ -287,26 +289,29 @@ text = "[center]Hello"
 process_mode = 3
 wait_time = 3.0
 
-[node name="Bowl" parent="." instance=ExtResource("8_mw5kb")]
-surface_material_override/0 = null
+[node name="StartScreen" parent="CanvasLayer" instance=ExtResource("8_vvrj4")]
+process_mode = 2
 
-[node name="Spawners" type="Node3D" parent="Bowl"]
+[node name="bowl" parent="." instance=ExtResource("8_1r1so")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -2, 0)
+
+[node name="Spawners" type="Node3D" parent="bowl"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 script = ExtResource("9_o8sup")
 
-[node name="Marker3D" type="Marker3D" parent="Bowl/Spawners"]
+[node name="Marker3D" type="Marker3D" parent="bowl/Spawners"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 
-[node name="Marker3D2" type="Marker3D" parent="Bowl/Spawners"]
+[node name="Marker3D2" type="Marker3D" parent="bowl/Spawners"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
-[node name="Marker3D3" type="Marker3D" parent="Bowl/Spawners"]
+[node name="Marker3D3" type="Marker3D" parent="bowl/Spawners"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
-[node name="Marker3D4" type="Marker3D" parent="Bowl/Spawners"]
+[node name="Marker3D4" type="Marker3D" parent="bowl/Spawners"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
-[node name="Marker3D5" type="Marker3D" parent="Bowl/Spawners"]
+[node name="Marker3D5" type="Marker3D" parent="bowl/Spawners"]
 
 [node name="BlobCameraQuad" parent="." instance=ExtResource("10_w1746")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)

@@ -124,6 +124,10 @@ void fragment() {
 
     ALBEDO = hitColor.rgb;
     ALPHA = hitColor.a;
+
+	//if (abs(depth_raw - 0.5) < 0.05) {
+	//	ALPHA = 0.0;
+	//}
 }
 
 //void light() {
