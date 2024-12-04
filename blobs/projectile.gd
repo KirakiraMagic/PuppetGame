@@ -15,7 +15,7 @@ const MAX_MASS = 5.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var tween = create_tween()
-	tween.tween_property(collision_shape, "scale", collision_shape.scale * 4, 0.5)
+	tween.tween_property(collision_shape, "scale", collision_shape.scale * 4, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	connect("body_entered", _on_body_entered)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

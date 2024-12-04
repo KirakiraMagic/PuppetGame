@@ -81,7 +81,7 @@ func fire_projectile():
 	#Instantiate a rigidbody projectile at the puppet head, add force to fire
 	var proj = projectile.instantiate()
 	proj.p1_shot = p1
-	proj.global_transform = head.global_transform
+	proj.global_transform = vomit_marker.global_transform
 	#rotate target direction upwards
 	var target_direction = Vector3(0,0.5,-1).normalized().rotated(Vector3.UP, rotation.y) * 10
 	proj.id = last_id + 1
@@ -146,7 +146,7 @@ func _physics_process(delta):
 			velocity.y += get_gravity().y * delta * 0.5
 	
 	skeleton.rotation.z = Input.get_axis(right_input, left_input) * copy_amount
-	skeleton.rotation.x = Input.get_axis(forward_input, back_input) * copy_amount
+	skeleton.rotation.x = -Input.get_axis(forward_input, back_input) * copy_amount
 
 	var lean_forward = Input.get_axis(forward_input, back_input)
 
@@ -159,7 +159,7 @@ func _physics_process(delta):
 	else: 
 		vomit_time = 0.0
 
-	var mouth_rot = remap(clamp(-lean_forward, 0.0, 0.7), 0.0, 0.7, PI/2, 0.3)
+	var mouth_rot = remap(clamp(-lean_forward, 0.0, 0.7), 0.0, 0.7, PI/2, 0.5)
 	skeleton.set_bone_pose_rotation(2,Quaternion(Vector3(1, 0, 0), mouth_rot))
 	#head_top.rotation.x = clamp(-lean_forward, 0, 1.3)
 	move_and_slide()

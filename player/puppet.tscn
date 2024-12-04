@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b28yxla8vjlg2" path="res://ui/stamina_circle.png" id="4_xtywu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_56b5h"]
+radius = 0.8
 
 [sub_resource type="Curve" id="Curve_1u3kp"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -145,7 +146,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="Body/Neck/Head"]
 
 [node name="StaminaSprite" type="Sprite3D" parent="."]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.77564, 1.89985, 0.516962)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.15304, 1.89985, 1.02824)
 layers = 2
 cast_shadow = 0
 billboard = 1
@@ -171,9 +172,9 @@ tint_under = Color(0.295909, 0.245951, 0, 1)
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="FaceCamMarker2" type="Marker3D" parent="puppet_model/PuppetAmature/Skeleton3D" index="1"]
-transform = Transform3D(1, 2.26267e-08, 2.97888e-09, -2.26267e-08, 0.965926, 0.258819, 2.97884e-09, -0.258819, 0.965926, -2.23736e-07, 2.046, 2.55924)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2.64279, 2.869)
 
 [node name="VomitMarker" type="Marker3D" parent="puppet_model/PuppetAmature/Skeleton3D" index="2"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -8.75178e-08, 1.85528, 1.00109)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.026, 0.567)
 
 [editable path="puppet_model"]
