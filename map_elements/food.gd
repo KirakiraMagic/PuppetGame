@@ -7,7 +7,6 @@ signal shrinker
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	shrinker.connect(shrink)
-	
 	pass # Replace with function body.
 
 
@@ -21,10 +20,10 @@ func _physics_process(delta):
 		await tween.finished
 		self.freeze = false
 	if (lifespan > MAX_LIFE) or $CollisionShape3D.scale <= Vector3(0.5,0.5,0.5):
+		$Poof.emitting = true #Do not use, timing is off
 		var tween = create_tween()
-		tween.tween_property($CollisionShape3D, "scale", Vector3.ZERO, 1.0)
+		tween.tween_property($CollisionShape3D, "scale", Vector3(0.1,0.1,0.1), 0.5)
 		await tween.finished
-		poof.instantiate()
 		queue_free()
 	pass
 	

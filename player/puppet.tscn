@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://bj2nnpuatwkts" path="res://player/puppet_material.tres" id="3_ww2ia"]
 [ext_resource type="PackedScene" uid="uid://bmkeh1swdjl3s" path="res://player/puppet_model.tscn" id="4_rkqhw"]
 [ext_resource type="Texture2D" uid="uid://b28yxla8vjlg2" path="res://ui/stamina_circle.png" id="4_xtywu"]
+[ext_resource type="Material" uid="uid://bvojewpopdwyf" path="res://player/poof.tres" id="5_7k7a1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_56b5h"]
 radius = 0.8
@@ -90,19 +91,6 @@ viewport_path = NodePath("StaminaBar")
 albedo_color = Color(0.811127, 0.811127, 0.811127, 1)
 subsurf_scatter_enabled = true
 subsurf_scatter_strength = 1.0
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ay5bi"]
-lifetime_randomness = 0.1
-emission_shape_scale = Vector3(5, 0.5, 5)
-emission_shape = 1
-emission_sphere_radius = 1.0
-direction = Vector3(0, 0, 0)
-spread = 30.0
-gravity = Vector3(0, 1, 0)
-scale_max = 4.0
-anim_speed_max = 1.0
-turbulence_noise_strength = 10.5
-turbulence_noise_speed_random = 1.68
 
 [sub_resource type="SphereMesh" id="SphereMesh_8yucm"]
 
@@ -212,10 +200,11 @@ amount = 20
 lifetime = 0.2
 one_shot = true
 speed_scale = 0.75
+explosiveness = 1.0
 randomness = 0.7
 collision_base_size = 0.0
 trail_lifetime = 0.01
-process_material = SubResource("ParticleProcessMaterial_ay5bi")
+process_material = ExtResource("5_7k7a1")
 draw_passes = 4
 draw_pass_1 = SubResource("SphereMesh_8yucm")
 draw_pass_2 = SubResource("SphereMesh_begom")
