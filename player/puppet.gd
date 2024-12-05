@@ -163,6 +163,12 @@ func _physics_process(delta):
 	skeleton.set_bone_pose_rotation(2,Quaternion(Vector3(1, 0, 0), mouth_rot))
 	#head_top.rotation.x = clamp(-lean_forward, 0, 1.3)
 	move_and_slide()
+	if self.scale <= Vector3(0.6,0.6,0.6):
+		var tween = create_tween()
+		tween.tween_property(self, "scale", Vector3(0.1,0.1,0.1), 1.0)
+		await tween
+		$Poof.emitting = true
+		reset_fall()
 
 
 var previous_wiggle_position = 0
@@ -258,11 +264,6 @@ func shrink(hit:bool):
 	print("Hit Puppet")
 	var tween = create_tween()
 	tween.tween_property(self, "scale", self.scale * 0.9, 0.1)
-	if self.scale <= Vector3(0.6,0.6,0.6):
-		tween.tween_property(self, "scale", Vector3(0.1,0.1,0.1), 1.0)
-		await tween
-		$Poof.emitting = true
-		reset_fall()
 func reset_fall():
 	print("Respawning Puppet...")
 	Global.on_hit.emit(body.is_in_group("p1"))
