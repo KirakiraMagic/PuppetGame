@@ -12,7 +12,7 @@ collision_mask = 4103
 script = ExtResource("1_ngxbj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.214111, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.214111, 0)
 shape = SubResource("BoxShape3D_eijp2")
 
 [node name="breadgoogly" parent="CollisionShape3D" instance=ExtResource("2_cnkrf")]
