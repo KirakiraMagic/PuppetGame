@@ -263,7 +263,7 @@ func detect_spin(delta) -> int:
 func shrink(hit:bool):
 	print("Hit Puppet")
 	var tween = create_tween()
-	tween.tween_property(self, "scale", self.scale * 0.9, 0.1)
+	tween.tween_property(self, "scale", self.scale * 0.95, 0.1)
 func reset_fall():
 	print("Respawning Puppet...")
 	Global.on_hit.emit(body.is_in_group("p1"))
