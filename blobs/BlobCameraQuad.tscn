@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://co631qbvwi7x3"]
+[gd_scene load_steps=3 format=3 uid="uid://d4lb8qf6lgvhm"]
 
-[ext_resource type="Material" uid="uid://b2sqw8o714pr2" path="res://blobs/blob_material.tres" id="1_001d6"]
+[ext_resource type="Material" path="res://blobs/blob_material.tres" id="1_001d6"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_kfu4n"]
 lightmap_size_hint = Vector2i(12, 12)

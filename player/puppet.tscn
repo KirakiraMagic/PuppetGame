@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2f6s3n6gmago"]
+[gd_scene load_steps=24 format=3 uid="uid://b2f6s3n6gmago"]
 
 [ext_resource type="Script" path="res://player/puppet.gd" id="1_5k1ph"]
 [ext_resource type="Material" uid="uid://bj2nnpuatwkts" path="res://player/puppet_material.tres" id="3_ww2ia"]
@@ -85,6 +85,29 @@ is_hemisphere = true
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_3vcf5"]
 viewport_path = NodePath("StaminaBar")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnm2p"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ay5bi"]
+lifetime_randomness = 0.1
+emission_shape_scale = Vector3(5, 0.5, 5)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 30.0
+gravity = Vector3(0, 1, 0)
+scale_max = 4.0
+anim_speed_max = 1.0
+turbulence_noise_strength = 10.5
+turbulence_noise_speed_random = 1.68
+
+[sub_resource type="SphereMesh" id="SphereMesh_02dej"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_begom"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_glrbo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_qor3k"]
 
 [node name="Puppet" type="CharacterBody3D" groups=["puppet"]]
 collision_layer = 2
@@ -176,5 +199,24 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 
 
 [node name="VomitMarker" type="Marker3D" parent="puppet_model/PuppetAmature/Skeleton3D" index="2"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.026, 0.567)
+
+[node name="Poof" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 2.15723, 0)
+material_override = SubResource("StandardMaterial3D_rnm2p")
+transparency = 0.4
+emitting = false
+amount = 20
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.75
+randomness = 0.7
+collision_base_size = 0.0
+trail_lifetime = 0.01
+process_material = SubResource("ParticleProcessMaterial_ay5bi")
+draw_passes = 4
+draw_pass_1 = SubResource("SphereMesh_02dej")
+draw_pass_2 = SubResource("SphereMesh_begom")
+draw_pass_3 = SubResource("SphereMesh_glrbo")
+draw_pass_4 = SubResource("SphereMesh_qor3k")
 
 [editable path="puppet_model"]

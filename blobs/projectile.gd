@@ -15,7 +15,7 @@ const MAX_MASS = 5.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var tween = create_tween()
-	tween.tween_property(collision_shape, "scale", collision_shape.scale * 4, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(collision_shape, "scale", collision_shape.scale * 4, 0.5)
 	connect("body_entered", _on_body_entered)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,9 +40,16 @@ func _on_body_entered(body):
 	if body.is_in_group("puppet"):
 		if body.is_in_group("p1") and !p1_shot:
 			Global.on_hit.emit(body.is_in_group("p1"))
+			body.shrinker.emit(body.is_in_group("p1"))
 		elif !body.is_in_group("p1") and p1_shot:
 			Global.on_hit.emit(body.is_in_group("p1"))
-
+			body.shrinker.emit(body.is_in_group("p1"))
+	if body.is_in_group("food"):
+		body.shrinker.emit(body.is_in_group("food"))
+		if p1_shot:
+			Global.on_hit.emit(!p1_shot)
+		else:
+			Global.on_hit.emit(!p1_shot)
 func absorb(other_projectile):
 	other_projectile.freeze = true
 	var scale_change =  1 + (other_projectile.mass / mass)
@@ -84,4 +91,3 @@ func attatch_to(other_projectile) -> bool:
 # 	if mass >= MAX_MASS:
 # 		sleeping = true
 # 	return true
-

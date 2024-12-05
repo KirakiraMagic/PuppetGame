@@ -1,5 +1,4 @@
-extends Node3D
-
+extends Node3D 
 @onready var food = [preload("res://map_elements/sphere_food.tscn"), preload("res://map_elements/cube_food.tscn"), preload("res://map_elements/capsule_food.tscn")]
 @export var spawn_rate := 0.1
 var time_since_spawn := 0.0

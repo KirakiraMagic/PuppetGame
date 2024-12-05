@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://e2sh1vqqqw27"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ja2sj"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m4gt0"]
+lifetime_randomness = 0.1
+emission_shape_scale = Vector3(5, 0.5, 5)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 30.0
+gravity = Vector3(0, 1, 0)
+scale_max = 4.0
+anim_speed_max = 1.0
+turbulence_noise_strength = 10.5
+turbulence_noise_speed_random = 1.68
+
+[sub_resource type="SphereMesh" id="SphereMesh_wh6jo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_hupvb"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_2kh3u"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bmtap"]
+
+[node name="Poof" type="Node3D"]
+
+[node name="Poof" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 2.15723, 0)
+material_override = SubResource("StandardMaterial3D_ja2sj")
+transparency = 0.4
+emitting = false
+amount = 20
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.75
+randomness = 0.7
+collision_base_size = 0.0
+trail_lifetime = 0.01
+process_material = SubResource("ParticleProcessMaterial_m4gt0")
+draw_passes = 4
+draw_pass_1 = SubResource("SphereMesh_wh6jo")
+draw_pass_2 = SubResource("SphereMesh_hupvb")
+draw_pass_3 = SubResource("SphereMesh_2kh3u")
+draw_pass_4 = SubResource("SphereMesh_bmtap")

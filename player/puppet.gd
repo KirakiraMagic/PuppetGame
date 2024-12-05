@@ -58,7 +58,7 @@ var face_cam_pos_offset = Vector3(0,0,-2)
 var face_cam_rot_offset = Vector3(0,-180,0)
 
 var start_position = Vector3.ZERO
-
+signal shrinker
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start_position = global_position
@@ -67,6 +67,7 @@ func _ready():
 		#$Body/Neck.material_override = puppet_mat
 		#$Body/Neck/Head/HeadTop.material_override = puppet_mat
 		#$Body/Neck/Head/HeadBottom.material_override = puppet_mat
+	shrinker.connect(shrink)
 
 var last_fire = 0.0
 @export var fire_rate = 0.2
@@ -253,6 +254,21 @@ func detect_spin(delta) -> int:
 		else:
 			return -1
 	return 0
-
+func shrink(hit:bool):
+	print("Hit Puppet")
+	var tween = create_tween()
+	tween.tween_property(self, "scale", self.scale * 0.9, 0.1)
+	if self.scale <= Vector3(0.6,0.6,0.6):
+		tween.tween_property(self, "scale", Vector3(0.1,0.1,0.1), 1.0)
+		await tween
+		$Poof.emitting = true
+		reset_fall()
 func reset_fall():
+	print("Respawning Puppet...")
+	Global.on_hit.emit(body.is_in_group("p1"))
 	global_position = start_position
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector3.ONE, 1.0)
+	await tween
+	self.scale = Vector3.ONE
+	print("Puppet Respawned")

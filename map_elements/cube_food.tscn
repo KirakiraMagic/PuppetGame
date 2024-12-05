@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsgrya76l3rrc"]
+[gd_scene load_steps=8 format=3 uid="uid://bsgrya76l3rrc"]
 
 [ext_resource type="Script" path="res://map_elements/food.gd" id="1_ngxbj"]
 [ext_resource type="PackedScene" uid="uid://c0kx2172jgvl0" path="res://map_elements/breadgoogly.blend" id="2_cnkrf"]
@@ -6,7 +6,26 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_eijp2"]
 size = Vector3(2.69434, 2.57178, 3.27832)
 
-[node name="Cube" type="RigidBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gq4eo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11qew"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qcu6v"]
+lifetime_randomness = 0.1
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 30.0
+gravity = Vector3(0, 1, 0)
+scale_max = 4.0
+anim_speed_max = 1.0
+turbulence_noise_strength = 10.5
+turbulence_noise_speed_random = 1.68
+
+[sub_resource type="SphereMesh" id="SphereMesh_3budt"]
+
+[node name="food" type="RigidBody3D" groups=["food"]]
 collision_layer = 4096
 collision_mask = 4103
 script = ExtResource("1_ngxbj")
@@ -17,3 +36,28 @@ shape = SubResource("BoxShape3D_eijp2")
 
 [node name="breadgoogly" parent="CollisionShape3D" instance=ExtResource("2_cnkrf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.214111, 0)
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_gq4eo")
+disabled = true
+
+[node name="Poof" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_11qew")
+transparency = 0.4
+emitting = false
+amount = 5
+lifetime = 0.1
+one_shot = true
+speed_scale = 0.75
+randomness = 0.7
+collision_base_size = 0.0
+trail_lifetime = 0.01
+process_material = SubResource("ParticleProcessMaterial_qcu6v")
+draw_pass_1 = SubResource("SphereMesh_3budt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
