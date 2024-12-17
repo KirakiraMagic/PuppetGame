@@ -1,15 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://c3mlast3cdsx1"]
 
 [ext_resource type="Script" path="res://map_elements/food.gd" id="1_ub1m4"]
-[ext_resource type="Material" uid="uid://cydm7krr75afl" path="res://map_elements/Poof.tres" id="2_7bux4"]
-[ext_resource type="Material" uid="uid://bvojewpopdwyf" path="res://player/poof.tres" id="3_34gf0"]
+[ext_resource type="Material" path="res://map_elements/Poof.tres" id="2_7bux4"]
+[ext_resource type="PackedScene" uid="uid://dncc8kxuaj25u" path="res://map_elements/applegoogly.blend" id="2_wulmk"]
+[ext_resource type="Material" path="res://player/poof.tres" id="3_34gf0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kr0cj"]
 radius = 2.5
-
-[sub_resource type="SphereMesh" id="SphereMesh_h2nc3"]
-radius = 2.5
-height = 5.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_f1xrl"]
 
@@ -21,12 +18,11 @@ max_contacts_reported = 500
 script = ExtResource("1_ub1m4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 0, 0)
 shape = SubResource("SphereShape3D_kr0cj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-mesh = SubResource("SphereMesh_h2nc3")
-skeleton = NodePath("../..")
+[node name="applegoogly" parent="CollisionShape3D" instance=ExtResource("2_wulmk")]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, -0.436803, -0.0568765)
 
 [node name="Poof" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)

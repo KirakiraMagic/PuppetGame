@@ -1,20 +1,18 @@
 [gd_scene load_steps=7 format=3 uid="uid://nojhhvggopqt"]
 
 [ext_resource type="Script" path="res://map_elements/food.gd" id="1_lte77"]
-[ext_resource type="Material" uid="uid://cydm7krr75afl" path="res://map_elements/Poof.tres" id="2_piiop"]
-[ext_resource type="Material" uid="uid://bvojewpopdwyf" path="res://player/poof.tres" id="3_7ir4g"]
+[ext_resource type="PackedScene" uid="uid://c5u4h2fxoufry" path="res://map_elements/zuccgoogly.blend" id="2_1qoxk"]
+[ext_resource type="Material" path="res://map_elements/Poof.tres" id="2_piiop"]
+[ext_resource type="Material" path="res://player/poof.tres" id="3_7ir4g"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_03be0"]
-radius = 1.5
-height = 5.0
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_vr8gs"]
-radius = 1.5
-height = 5.0
+radius = 1.21384
+height = 6.22398
 
 [sub_resource type="SphereMesh" id="SphereMesh_0isbr"]
 
 [node name="food" type="RigidBody3D" groups=["food"]]
+transform = Transform3D(1, 0, 0, 0, 0.994636, 0.103435, 0, -0.103435, 0.994636, 0, 0, 0)
 collision_layer = 4096
 collision_mask = 4103
 script = ExtResource("1_lte77")
@@ -23,9 +21,8 @@ script = ExtResource("1_lte77")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_03be0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-mesh = SubResource("CapsuleMesh_vr8gs")
-skeleton = NodePath("../..")
+[node name="zuccgoogly" parent="CollisionShape3D" instance=ExtResource("2_1qoxk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.276645, 0)
 
 [node name="Poof" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)

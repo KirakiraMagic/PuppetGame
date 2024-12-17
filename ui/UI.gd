@@ -36,6 +36,7 @@ func _on_letter_collected(letter,score, p1):
 		p2_score_label.text = "[center]" + str(p2_score) + " PTS"
 
 func _on_hit(p1: bool):
+	$AudioStreamPlayer.play()
 	if p1:
 		p2_score += 10
 		p2_score = clamp(p2_score, 0, 9999)

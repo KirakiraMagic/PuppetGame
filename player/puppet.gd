@@ -145,7 +145,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 			velocity.y += get_gravity().y * delta * 0.5
 	
-	skeleton.rotation.z = Input.get_axis(right_input, left_input) * copy_amount
+	skeleton.rotation.z = -Input.get_axis(right_input, left_input) * copy_amount
 	skeleton.rotation.x = -Input.get_axis(forward_input, back_input) * copy_amount
 
 	var lean_forward = Input.get_axis(forward_input, back_input)

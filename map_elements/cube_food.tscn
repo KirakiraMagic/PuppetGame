@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" path="res://map_elements/food.gd" id="1_ngxbj"]
 [ext_resource type="PackedScene" uid="uid://c0kx2172jgvl0" path="res://map_elements/breadgoogly.blend" id="2_cnkrf"]
-[ext_resource type="Material" uid="uid://cydm7krr75afl" path="res://map_elements/Poof.tres" id="3_0k2nt"]
-[ext_resource type="Material" uid="uid://bvojewpopdwyf" path="res://player/poof.tres" id="4_bpo2p"]
+[ext_resource type="Material" path="res://map_elements/Poof.tres" id="3_0k2nt"]
+[ext_resource type="Material" path="res://player/poof.tres" id="4_bpo2p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eijp2"]
 size = Vector3(2.69434, 2.57178, 3.27832)
 
 [sub_resource type="SphereMesh" id="SphereMesh_3budt"]
 
-[node name="food" type="RigidBody3D" groups=["food"]]
+[node name="food2" type="RigidBody3D" groups=["food"]]
 collision_layer = 4096
 collision_mask = 4103
 script = ExtResource("1_ngxbj")

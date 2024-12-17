@@ -18,6 +18,15 @@ func _process(delta):
 	var p1_lean = Input.get_axis("arm_back", "arm_forward")
 	var p2_lean = Input.get_axis("hand_down", "hand_up")
 
+	$Label.text = ""
+	if p1_lean >= 0.7:
+		$Label.text += "P1 READY\n"
+	else:
+		$Label.text += "P1 not ready\n"
+	if p2_lean >= 0.7:
+		$Label.text += "P2 READY\n"
+	else:
+		$Label.text += "P2 not ready\n"
 	if p1_lean >= 0.7 and p2_lean >= 0.7:
 		visible = false
 		get_tree().paused = false
